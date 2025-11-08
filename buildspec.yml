@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    IMAGE_REPO_NAME: "my-demo-app"
+    IMAGE_REPO_NAME: "java-demo-ecr"
     IMAGE_TAG: "latest"
 phases:
   pre_build:
@@ -22,7 +22,7 @@ phases:
     commands:
       - echo Pushing the Docker image...
       - docker push $REPO_URI:$IMAGE_TAG
-      - printf '[{"name":"demo-container","imageUri":"%s"}]' $REPO_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"java-web-app-container","imageUri":"%s"}]' $REPO_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
   files:
     - imagedefinitions.json
